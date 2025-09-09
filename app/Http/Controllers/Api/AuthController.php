@@ -82,12 +82,12 @@ class AuthController extends Controller
      */
     public function me()
     {
-        // Ambil objek user yang sedang terotentikasi
+        // Middleware 'auth:api' sudah memastikan token ini valid.
         $user = auth('api')->user();
 
-        // Kembalikan response JSON dengan format baru
+        // Kirim respons sukses dengan status 'valid' dan data NIP.
         return response()->json([
-            'message' => 'Data pengguna berhasil diambil',
+            'status' => 'valid',
             'data' => [
                 'nip' => $user->nip
             ]
