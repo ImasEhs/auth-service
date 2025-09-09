@@ -39,18 +39,6 @@ class AuthController extends Controller
      * Helper function untuk format response JWT.
      */
 
-    protected function respondWithToken1($token)
-    {
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Login berhasil! (Mode Debug)', // Tambahkan pesan agar ingat
-            'data' => [
-                'nip' => auth('api')->user()->nip,
-                'token' => $token,
-            ]
-        ]);
-    }
-
     protected function respondWithToken($token)
     {
         // Ambil NIP dari user yang sedang terotentikasi
